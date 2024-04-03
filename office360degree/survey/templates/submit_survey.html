@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Add Question to Survey: {{ survey.title }}</h2>
+  <form method="post" action="{% url 'question-create' survey.id %}">
+    {% csrf_token %}
+
+    <!-- Render predefined questions as options -->
+    <label for="id_predefined_questions">Select a Predefined Question:</label>
+    <select name="predefined_questions" id="id_predefined_questions">
+      {% for predefined_question in predefined_questions %}
+        <option value="{{ predefined_question.id }}">{{ predefined_question.question_text }}</option>
+      {% endfor %}
+    </select>
+
+    <!-- User-created question fields -->
+    <label for="id_question_text">Enter your question:</label>
+    {{ form.question_text }}
+    {{ form.category }}
+    <!-- Include other fields from the form as needed -->
+
+    <button type="submit">Add Question</button>
+  </form>
+{% endblock %}

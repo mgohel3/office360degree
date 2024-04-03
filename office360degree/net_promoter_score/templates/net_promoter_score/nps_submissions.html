@@ -1,0 +1,31 @@
+<!-- net_promoter_score/templates/net_promoter_score/nps_submissions.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>NPS Submissions</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>NPS Score</th>
+        <th>Category</th>
+        <th>Reason</th>
+        <th>Submission Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for submission in nps_submissions %}
+        <tr>
+          <td>{{ submission.user.username }}</td>
+          <td>{{ submission.score }}</td>
+          <td>{{ submission.group }}</td>
+          <td>{{ submission.reason }}</td>
+          <td>{{ submission.timestamp }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

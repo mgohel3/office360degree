@@ -1,0 +1,93 @@
+<!-- templates/net_promoter_score/ees_user_scores.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Overall Employee Engagement Scores</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Overall Employee Engagement Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for overall_score in overall_scores %}
+        <tr>
+          <td>{{ overall_score.user.username }}</td>
+          <td>{{ overall_score.overall_score|floatformat:2 }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- Chart Script -->
+  <div id="chart-container"></div>
+  <script>
+    var overallScores = [
+      {% for overall_score in overall_scores %}
+        {{ overall_score.overall_score|floatformat:2 }},
+      {% endfor %}
+    ];
+
+    var options = {
+      series: overallScores,
+      chart: {
+        height: 350,
+        type: 'bar',
+      },
+      plotOptions: {
+        bar: {
+          borderRadius: 10,
+          dataLabels: {
+            position: 'top',
+          },
+        },
+      },
+      dataLabels: {
+        enabled: true,
+        formatter: function (val) {
+          return val + '%';
+        },
+        offsetY: -20,
+        style: {
+          fontSize: '12px',
+          colors: ['#304758'],
+        },
+      },
+      xaxis: {
+        categories: [
+          {% for overall_score in overall_scores %}
+            '{{ overall_score.user.username }}',
+          {% endfor %}
+        ],
+        position: 'top',
+        axisBorder: {
+          show: false,
+        },
+        axisTicks: {
+          show: false,
+        },
+        crosshairs: {
+          fill: {
+            type: 'gradient',
+            gradient: {
+              colorStops: [
+                [{ offset: 0, color: '#b9b8b8' }],
+                [{ offset: 100, color: '#3e3e3e' }],
+              ],
+            },
+          },
+        },
+        tooltip: {
+          enabled: true,
+          offsetY: -35,
+        },
+      },
+    };
+
+    var chart = new ApexCharts(document.querySelector('#chart-container'), options);
+    chart.render();
+  </script>
+{% endblock %}

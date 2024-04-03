@@ -1,0 +1,23 @@
+{% block title %}Create Survey - Surveys{% endblock %}
+
+{% block content %}
+  <h2>Create a New Survey</h2>
+  <form method="post" action="{% url 'survey_create' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Survey</button>
+  </form>
+
+  {% if form.errors %}
+    <div class="alert alert-danger">
+      <strong>Error(s):</strong>
+      <ul>
+        {% for field, errors in form.errors.items %}
+          {% for error in errors %}
+            <li>{{ field }}: {{ error }}</li>
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+{% endblock %}

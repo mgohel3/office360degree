@@ -1,0 +1,99 @@
+{% load static %}
+    <div class="row h-100">
+        <div class="col-sm-5">
+          <div class="d-flex align-items-end h-100 justify-content-center mt-sm-0 mt-3">
+            <img src="{% static 'assets/img/illustrations/team.png' %}" class="img-fluid" alt="Image" width="120" data-app-light-img="illustrations/sitting-girl-with-laptop-light.png" data-app-dark-img="illustrations/sitting-girl-with-laptop-dark.html">
+          </div>
+        </div>
+        <div class="col-sm-7">
+          <div class="card-body text-sm-end text-center ps-sm-0">
+            <button data-bs-target="#addUserModal" data-bs-toggle="modal" class="btn btn-primary mb-3 text-nowrap add-new-role">Add New User</button>
+            <p class="mb-0">Add New Single User.</p>
+          </div>
+        </div>
+    </div>
+    <!-- Add User Modal -->
+    <div class="modal fade" id="addUserModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-simple modal-dialog-centered modal-add-new-role">
+        <div class="modal-content p-3 p-md-5">
+          <div class="modal-body">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="text-center mb-4">
+              <h3 class="title">Add New User</h3>
+              <p>Add a new user details here.</p>
+            </div>
+
+            <!-- Include the add_user form in the modal -->
+              <form method="post" action="{% url 'owner:add_user' %}">
+                {% csrf_token %}
+                <div class="card-body">
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="id_username" class="form-label">Username</label>
+                            <input type="text" id="id_username" name="username" class="form-control" placeholder="Enter a username">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="id_email" class="form-label">E-mail</label>
+                            <input type="email" id="id_email" name="email" class="form-control" placeholder="Enter an email">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="id_joining_date" class="form-label">Joining Date</label>
+                            <input type="date" id="id_joining_date" name="joining_date" class="form-control">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="id_password" class="form-label">Password</label>
+                            <input type="password" id="id_password" name="password" class="form-control" placeholder="Enter a password">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="id_selected_role" class="form-label">Role</label>
+                            <select id="id_selected_role" name="selected_role" class="form-control">
+                                <option value="team_leader">Team Leader</option>
+                                <option value="manager">Manager</option>
+                                <option value="hr">HR</option>
+                                <option value="employee">Employee</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="id_manager" class="form-label">Manager</label>
+                            <select id="id_manager" name="manager" class="form-control">
+                                {% for manager in managers %}
+                                    <option value="{{ manager.id }}">{{ manager.username }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="id_team_leader" class="form-label">Team Leader</label>
+                            <select id="id_team_leader" name="team_leader" class="form-control">
+                                {% for team_leader in team_leaders %}
+                                    <option value="{{ team_leader.id }}">{{ team_leader.username }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="id_hr" class="form-label">HR</label>
+                            <select id="id_hr" name="hr" class="form-control">
+                                {% for hr in hr_s %}
+                                    <option value="{{ hr.id }}">{{ hr.username }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                          <div class="mb-3 col-md-6">
+                                <label for="id_sbu_units" class="form-label">SBU Units</label>
+                                <select id="id_sbu_units" name="sbu_units" class="form-control">
+                                    {% for sbu_unit in sbu_units %}
+                                        <option value="{{ sbu_unit.id }}">{{ sbu_unit.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                    </div>
+                    <div class="mt-2">
+                        <button type="submit" class="btn btn-primary me-2">Add User</button>
+                        <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                    </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Add User Modal -->

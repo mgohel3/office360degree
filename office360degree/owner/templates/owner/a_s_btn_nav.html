@@ -1,0 +1,29 @@
+{% load static %}
+
+<ul class="nav nav-pills flex-column flex-md-row mb-3">
+                    <li class="menu-item">
+                      <a class="nav-link  {% if request.path == '/owner/account_settings/' %}active{% endif %}" href="{% url 'owner:account_settings' %}"><i class="bx bx-user me-1"></i> Account</a>
+                    </li>
+                    {% if user.is_owner or user.is_hr %}
+                    <li class="menu-item">
+                      <a class="nav-link {% if request.path == '/owner/ac_survey_questions/' %}active{% endif %}" href="{% url 'owner:ac_survey_questions' %}"><i class="bx bx-list-plus me-1"></i> Survey Questions</a>
+                    </li>
+                    <li class="menu-item">
+                      <a class="nav-link {% if request.path == '/owner/puls_survey_frequency/' %}active{% endif %}" href="{% url 'owner:puls_survey_frequency' %}"><i class="bx bx-pulse me-1"></i> Puls Survey Frequency</a>
+                    </li>
+                    <li class="menu-item">
+                      <a class="nav-link {% if request.path == '/owner/user-management/' %}active{% endif %}" href="{% url 'owner:usermanagement' %}"><i class="bx bx-group me-1"></i> User Managment</a>
+                    </li>
+                    <li class="menu-item">
+                      <a class="nav-link {% if request.path == '/owner/custom_survey_launch/' %}active{% endif %}" href="{% url 'owner:custom_survey_launch' %}"><i class="bx bx-notepad me-1"></i> Custom Survey Launch</a
+                      >
+                    </li>
+                    {% endif %}
+                    <li class="menu-item">
+                      <a class="nav-link {% if request.path == '/owner/notifications/' %}active{% endif %}" href="{% url 'owner:notifications' %}"><i class="bx bx-bell me-1"></i> Notifications</a
+                      >
+                    </li>
+                    <li class="menu-item">
+                      <a class="nav-link {% if request.path == '/owner/app_integration/' %}active{% endif %}" href="{% url 'owner:app_integration' %}"><i class="bx bx-link-alt me-1"></i>App Integration</a>
+                    </li>
+                  </ul>

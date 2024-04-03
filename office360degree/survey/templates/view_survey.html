@@ -1,0 +1,13 @@
+<!-- survey/templates/survey/view_survey.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ survey.title }}</h2>
+  <p>Owner: {{ survey.owner.username }}</p>
+  <p>Created at: {{ survey.created_at }}</p>
+
+  <h3>Survey Questions:</h3>
+  <p>{{ survey.questions }}</p>
+
+  <p>Share this link with respondents: <a href="{% url 'survey:view_survey' unique_link=survey.unique_link %}">{% url 'survey:view_survey' unique_link=survey.unique_link %}</a></p>
+{% endblock %}

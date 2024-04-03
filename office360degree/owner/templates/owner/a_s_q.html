@@ -1,0 +1,147 @@
+{% load static %}
+
+<!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Account Settings / </span> Survey Questions </h4>
+
+              <div class="row">
+                <div class="col-md-12">
+                  {% include 'owner/a_s_btn_nav.html' %}
+                  <div class="row">
+                    <div class="col-md-12 col-12 mb-md-0 mb-4">
+                      <div class="card">
+                       <!--<h5 class="card-header">Select Suitable</h5>-->
+                        <div class="card-body">
+                          <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                            <div class="mb-3" style="display: none;">
+                                <label for="{{ form.title.id_for_label }}">Title:</label>
+                                {{ form.title }}
+                            </div>
+
+                            <div class="mb-3" style="display: none;">
+                                <label for="{{ form.company.id_for_label }}">Company:</label>
+                                {{ form.company }}
+                            </div>
+
+                            <div class="mb-3" style="display: none;">
+                                <label for="{{ form.frequency.id_for_label }}">Frequency:</label>
+                                {{ form.frequency }}
+                            </div>
+
+                            <div class="mb-3" style="display: none;">
+                                <label for="{{ form.date.id_for_label }}">Date:</label>
+                                {{ form.date }}
+                            </div>
+
+                            <div class="mb-3" style="display: none;">
+                                <label for="{{ form.time.id_for_label }}">Time:</label>
+                                {{ form.time }}
+                            </div>
+
+                            <div class="mb-3" style="display: none;">
+                                <label for="{{ form.duration.id_for_label }}">Duration:</label>
+                                {{ form.duration }}
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <!-- your existing table content -->
+                                    <tbody>
+                                        {% for question in questions %}
+                                            <tr data-category="{{ question.category }}">
+                                                <td>
+                                                    <input type="checkbox" name="selected_questions" value="{{ question.id }}">
+                                                    {{ forloop.counter }}. <span class="fw-medium">{{ question.question_text }}</span>
+                                                </td>
+                                                <td><span class="fw-medium badge bg-label-primary">{{ question.category.name }}</span></td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <br><br>
+                            <button type="submit" class="btn btn-primary">Update Survey</button>
+                          </form>
+                          <br><br>
+                          <!-- Modal -->
+                          <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel1">New Question</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="row">
+                                    <div class="col mb-3">
+                                      <label for="exampleFormControlTextarea1" class="form-label">Add Question</label>
+                                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    </div>
+                                  </div>
+                                  <div class="row g-2">
+                                    <div class="col-md">
+                                      <small class="text-light fw-medium d-block">Indicators</small>
+                                      <div class="form-check form-check-inline mt-3">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                                        <label class="form-check-label" for="inlineRadio1">Autonomy</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                                        <label class="form-check-label" for="inlineRadio2">Clarity</label>
+                                      </div>
+                                      <div class="form-check form-check-inline mt-3">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                                        <label class="form-check-label" for="inlineRadio3">Fairness</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                                        <label class="form-check-label" for="inlineRadio4">Growth</label>
+                                      </div>
+                                      <div class="form-check form-check-inline mt-3">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                                        <label class="form-check-label" for="inlineRadio5">Loyalty</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                                        <label class="form-check-label" for="inlineRadio6">Recognition</label>
+                                      </div>
+
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                                        <label class="form-check-label" for="inlineRadio7">Relationship</label>
+                                      </div>
+
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                                        <label class="form-check-label" for="inlineRadio8">Stress</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                                        <label class="form-check-label" for="inlineRadio9">Workload</label>
+                                      </div>
+
+                                    </div>
+
+
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-primary">Save Question</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              <!-- /Connections -->
+    </div>
+  </div>
+</div>

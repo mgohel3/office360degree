@@ -1,0 +1,47 @@
+{% extends "_base.html" %}
+{% block title %}Manage Categories - Surveys{% endblock %}
+
+{% block content %}
+<div class="ui center aligned basic very padded segment">
+    <h1 class="ui header">Manage Categories</h1>
+    <div class="ui container left aligned">
+        <h2 class="ui header">Add New Category</h2>
+        <form class="ui form {% if category_form.errors %}error{% endif %}" method="post" novalidate>
+            {% csrf_token %}
+            {% for field in category_form %}
+            <div class="field {% if field.errors %}error{% endif %}">
+                <label>{{ field.label_tag }}</label>
+                {{ field }}
+            </div>
+            {% endfor %}
+            <button type="submit" class="ui primary button">Add Category</button>
+            <div class="ui message error">
+                <div class="header">We had some issues</div>
+                <ul class="list">
+                    {% for field in category_form %}
+                    {% for error in field.errors %}
+                    <li>{{ field.label_tag }} {{ error }}</li>
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </form>
+
+        <h2 class="ui header">Existing Categories</h2>
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for category in categories %}
+                <tr>
+                    <td>{{ category.name }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

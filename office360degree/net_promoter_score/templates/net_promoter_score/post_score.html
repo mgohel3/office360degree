@@ -1,0 +1,39 @@
+<!-- net_promoter_score/templates/net_promoter_score/post_score.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Submit NPS Score</h2>
+
+  {% if success %}
+    <p>Thank you for submitting your NPS score!</p>
+    <p>Your score: {{ score.group }} ({{ score.score }}/10)</p>
+  {% else %}
+    <form method="post" action="{% url 'net_promoter_score:post_score' %}">
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label for="{{ form.score.id_for_label }}">NPS Score:</label>
+        <input type="number" name="score" id="{{ form.score.id_for_label }}" value="{{ form.score.value }}" step="1" min="-1" max="10" />
+        {{ form.score.errors }}
+      </div>
+
+      <div class="form-group">
+        <label for="{{ form.reason.id_for_label }}">Reason (optional):</label>
+        <textarea name="reason" id="{{ form.reason.id_for_label }}">{{ form.reason.value }}</textarea>
+        {{ form.reason.errors }}
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    {% if errors %}
+      <div class="alert alert-danger">
+        <strong>Error:</strong>
+        {% for field, error in errors %}
+          <p>{{ field }}: {{ error }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% load static %}
+    <!-- Include the add_user form in the modal -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="file" class="form-label">Select CSV File</label>
+            <input type="file" class="form-control" id="file" name="file">
+        </div>
+        <button type="submit" class="btn btn-primary">Upload Users</button>
+    </form>

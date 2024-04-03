@@ -1,0 +1,1145 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- MG -->
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Home | Office 360 Degree - HTML Admin</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+    <link rel="stylesheet" href="../assets/vendor/libs/spinkit/spinkit.css" />
+    
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+
+    <!-- Helpers -->
+    <script src="../assets/vendor/js/helpers.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"><script>
+    <script>
+      window.Promise ||
+        document.write(
+          '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+        )
+      window.Promise ||
+        document.write(
+          '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
+        )
+      window.Promise ||
+        document.write(
+          '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
+        )
+    </script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    
+
+    <script>
+      // Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
+      // Based on https://gist.github.com/blixt/f17b47c62508be59987b
+      var _seed = 42;
+      Math.random = function() {
+        _seed = _seed * 16807 % 2147483647;
+        return (_seed - 1) / 2147483646;
+      };
+    </script>
+
+    
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link">
+              <img src="../assets/img/logo/logo.png" alt="Office360Degree" class="app-brand-img w-px-100">
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+              <i class="bx bx-chevron-left bx-sm align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-1">
+            <!-- Dashboard -->
+            <li class="menu-item active">
+              <a href="index.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Dashboard</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="surveys.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-file"></i>
+                <div data-i18n="Analytics">Surveys</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="reports.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-file-find"></i>
+                <div data-i18n="Analytics">Reports</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="comments.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-comment-detail"></i>
+                <div data-i18n="Analytics">Comments</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="team.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-group"></i>
+                <div data-i18n="Analytics">My Team</div>
+              </a>
+            </li>
+            <li class="menu-header small text-uppercase">
+              <span class="menu-header-text">Account</span>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <div data-i18n="Account Settings">Account Settings</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="pages-account-settings-account.html" class="menu-link">
+                    <div data-i18n="Account">Account</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="survey-questions.html" class="menu-link">
+                    <div data-i18n="Account">Survey Questions</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="puls-survey-frequency.html" class="menu-link">
+                    <div data-i18n="Account">Puls Survey Frequency</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="user-managment.html" class="menu-link">
+                    <div data-i18n="Account">User Managment</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="custom-survey.html" class="menu-link">
+                    <div data-i18n="Account">Custom Survey Launch</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div data-i18n="Notifications">Notifications</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="pages-account-settings-connections.html" class="menu-link">
+                    <div data-i18n="Connections">App Integration</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+                <div data-i18n="Misc">Error Pages</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="pages-misc-error.html" class="menu-link">
+                    <div data-i18n="Error">Error</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="pages-misc-under-maintenance.html" class="menu-link">
+                    <div data-i18n="Under Maintenance">Under Maintenance</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="auth-login-basic.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-log-out"></i>
+                <div data-i18n="Analytics">Sign Out</div>
+              </a>
+            </li>
+           
+          </ul>
+        </aside>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+
+          <nav class="layout-navbar container-fluid navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+            id="layout-navbar">
+            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                <i class="bx bx-menu bx-sm"></i>
+              </a>
+            </div>
+
+            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+              <!-- Search -->
+              <div class="navbar-nav align-items-center">
+                <div class="nav-item d-flex align-items-center">
+                  <i class="bx bx-search fs-4 lh-0"></i>
+                  <input
+                    type="text"
+                    class="form-control border-0 shadow-none"
+                    placeholder="Search..."
+                    aria-label="Search..."
+                  />
+                </div>
+              </div>
+              <!-- /Search -->
+
+              <ul class="navbar-nav flex-row align-items-center ms-auto">
+                <!-- Place this tag where you want the button to render. -->
+                <li class="nav-item lh-1 me-3">
+                  <a
+                    class="github-button"
+                    href="https://github.com/themeselection/office 360`-html-admin-template-free"
+                    data-icon="octicon-star"
+                    data-size="large"
+                    data-show-count="true"
+                    aria-label="Star themeselection/office 360`-html-admin-template-free on GitHub"
+                    >Star</a
+                  >
+                </li>
+
+                <!-- User -->
+                <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                  <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                    <div class="avatar avatar-online">
+                      <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                    </div>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-3">
+                            <div class="avatar avatar-online">
+                              <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                            </div>
+                          </div>
+                          <div class="flex-grow-1">
+                            <span class="fw-semibold d-block">Reeya Padma</span>
+                            <small class="text-muted">Admin</small>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <i class="bx bx-user me-2"></i>
+                        <span class="align-middle">My Profile</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <i class="bx bx-cog me-2"></i>
+                        <span class="align-middle">Settings</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <span class="d-flex align-items-center align-middle">
+                          <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
+                          <span class="flex-grow-1 align-middle">Billing</span>
+                          <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="auth-login-basic.html">
+                        <i class="bx bx-power-off me-2"></i>
+                        <span class="align-middle">Log Out</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <!--/ User -->
+              </ul>
+            </div>
+          </nav>
+
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-fluid flex-grow-1 container-p-y">
+              <!-- Layout Demo -->
+              <div class="row">
+                <div class="col-lg-12 mb-4 order-0">
+                  
+                  
+                  <div class="card">
+                    
+                    <div class="d-flex align-items-end row">
+                      <div class="col-sm-7">
+                        <div class="card-body">
+                          <h5 class="card-title text-primary">Welcome Reeya!! 🎉</h5>
+                          <p class="mb-4">
+                            Here's the Employee Engagement Analysis for the period ending <span class="fw-bold"> 1st September 2023. </span></p>
+                          <a href="javascript:;" class="btn btn-sm btn-outline-primary">Surveys</a>
+                        </div>
+                      </div>
+                      
+                      
+                      <div class="col-sm-5 text-center text-sm-left">
+                        <div class="card-body pb-0 px-0 px-md-4">
+                          <img src="../assets/img/illustrations/man-with-laptop-light.png" height="140" alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png" data-app-light-img="illustrations/man-with-laptop-light.png" />
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                </div>
+              </div>
+              <div class="row">
+
+                <div class="col-lg-12 mb-4 order-0">
+
+                  <div class="row">
+                    <div class="col-md">
+                      <div class="card h-100">
+                        <div class="card-header">Employee Engagement Score</div>
+                        <div class="card-body text-primary">
+                          <h5 class="card-title"></h5>
+                            <p class="card-text">
+                            <div id="empe"></div>
+                            Employee Engagement Score between 0 to 10 the period from<span class="fw-bold"> 1st September 2023 to 30th September 2023. </span></p>
+                            </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md">
+                      <div class="card h-100">
+                        <div class="card-header">eNPS Score</div>
+                        <div class="card-body text-secondary">
+                          <p class="card-text">
+                            <div id="enps-mg"></div> <br/>
+                            eNPS Score increased or decreased by X% during the period from<span class="fw-bold"> 1st September 2023 to 30th September 2023. </span></p>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md">
+                      <div class="card h-100">
+                        <div class="card-header">Survey Participation</div>
+                        <div class="card-body text-success">
+                          <div id="eeamg"></div>
+                            <p class="card-text">
+                              Some quick example text to build on the card title and make up the bulk of the card's content.
+                            </p>
+                        </div>
+                      </div>
+                    </div>
+                   </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-8 mb-4 order-0">
+                  <div class="row">
+                    <div class="col-md">
+                      <div class="card">
+                        <div class="card-header">Employee Engagement Score Chart</div>
+                        <div class="card-body text-primary">
+                          <div id="eea2"></div>
+                          <p class="card-text">
+                            Employee Engagement Score for the<span class="fw-bold"> current month, lifetime high, lifetime low.</span></p>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-md">
+                      <div class="card">
+                        <div class="card-header">eNPS Chart</div>
+                        <div class="card-body text-primary">
+                          <div id="enps3"></div>
+                          <p class="card-text">
+                            This indicator/charts shows team wise eNPS score chart for the period from <span class="fw-bold"> 1st September 2023. </span></p>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 mb-4 order-0">
+
+                  <div class="row">
+                    <div class="col-md">
+                      <div class="card">
+                        <div class="card-header">Employee Engagement Indicators</div>
+                        <div class="card-body text-primary">
+                        <div id="eei"></div>
+                          <p class="card-text">
+                            This indicator shows the Employee Engagement Indicators for the period from <span class="fw-bold"> 1st September 2023. </span></p>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                   </div>
+
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12 mb-4 order-0">
+                  <div class="row">
+                    <div class="col-md">
+                      <div class="card">
+                        <div class="card-header">Top 3 Strengths</div>
+                        <div class="card-body text-primary">
+                          <div class="card-body">
+                            <div class="list-group">
+                              <div class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                  <h6>Loyalty</h5>
+                                </div>
+                                <p class="mb-1">Loyalty - Here is the defination of selected indicator.
+                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
+                                </p>
+                              </div>
+                              <div class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                  <h6>Recognition</h5>
+                                </div>
+                                <p class="mb-1">Recognition - Here is the defination of selected indicator.
+                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution</p>
+                              </div>
+                              <div class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                  <h6 >Clarity</h6>
+                                </div>
+                                <p class="mb-1">Clarity - Here is the defination of selected indicator.
+                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md">
+                      <div class="card">
+                        <div class="card-header">Top 3 Area's of Improvement</div>
+                          <div class="card-body text-primary">
+                            <div class="card-body">
+                              <div class="list-group">
+                                <div class="list-group-item list-group-item-action">
+                                  <div class="d-flex w-100 justify-content-between">
+                                    <h6>Workload</h5>
+                                  </div>
+                                  <p class="mb-1">Workload - Here is the defination of selected indicator.
+                                  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
+                                  </p>
+                                </div>
+                                <div class="list-group-item list-group-item-action">
+                                  <div class="d-flex w-100 justify-content-between">
+                                    <h6>Relationship</h5>
+                                  </div>
+                                  <p class="mb-1">Relationship - Here is the defination of selected indicator.
+                                  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution</p>
+                                </div>
+                                <div class="list-group-item list-group-item-action">
+                                  <div class="d-flex w-100 justify-content-between">
+                                    <h6 >Stress</h6>
+                                  </div>
+                                  <p class="mb-1">Stress - Here is the defination of selected indicator.
+                                  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--/ Layout Demo -->
+            </div>
+            <!-- / Content -->
+
+            <!-- Footer -->
+            <footer class="content-footer footer bg-footer-theme">
+              <div class="container-fluid d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0">
+                  ©
+                  <script>
+                    document.write(new Date().getFullYear());
+                  </script>
+                  , made with ❤️ by
+                  <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">office 360 degree</a>
+                </div>
+                <div>
+
+                  <a
+                    href="https://themeselection.com/demo/office 360`-bootstrap-html-admin-template/documentation/"
+                    target="_blank"
+                    class="footer-link me-4"
+                    >Documentation</a
+                  >
+
+                  <a
+                    href="https://github.com/themeselection/office 360`-html-admin-template-free/issues"
+                    target="_blank"
+                    class="footer-link me-4"
+                    >Support</a
+                  >
+                </div>
+              </div>
+            </footer>
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+    <!--mg js-->
+
+
+
+    <script>
+        var options = {
+        series: [70], // Set series 0 to 100 to represent the value
+        chart: {
+          height: 240,
+          type: "radialBar",
+          offsetY: -10
+        },
+        plotOptions: {
+          radialBar: {
+            dataLabels: {
+              name: {
+                offsetY: 20,
+                color: "grey",
+                formatter: function () {
+                  return [ "Overall Score", "(30 days)"];
+                },
+          fontSize: '12px' // Set the font size for "Overall Score"
+        },
+              value: {
+                color: "#111",
+                offsetY: -30,
+                fontSize: "22px",
+                formatter: function (val) {
+                  return (val * 1/10); // Directly map the value to a percentage
+                }
+              }
+            }
+          }
+        },
+        fill: {
+        colors: ['#FFBF00']
+      },
+        labels: ["Median Ratio"]
+      };
+
+      var chart = new ApexCharts(document.querySelector("#empe"), options);
+      chart.render();
+    </script>
+
+
+    <script> 
+          var options = {
+          chart: {
+          height: 240,
+          type: "radialBar",
+          },
+
+        series: [67],
+        colors: ["#20E647"],
+        plotOptions: {
+          radialBar: {
+            hollow: {
+              margin: 0,
+              size: "70%",
+              background: "#293450"
+            },
+            track: {
+              dropShadow: {
+                enabled: true,
+                top: 2,
+                left: 0,
+                blur: 4,
+                opacity: 0.15
+              }
+            },
+            dataLabels: {
+              name: {
+                offsetY: -10,
+                color: "#fff",
+                fontSize: "13px"
+              },
+              value: {
+                color: "#fff",
+                fontSize: "30px",
+                show: true
+              }
+            }
+          }
+        },
+        fill: {
+          type: "gradient",
+          gradient: {
+            shade: "dark",
+            type: "vertical",
+            gradientToColors: ["#87D4F9"],
+            stops: [0, 100]
+          }
+        },
+        stroke: {
+          lineCap: "round"
+        },
+        labels: ["Overall Participation"]
+      };
+
+      var chart = new ApexCharts(document.querySelector("#eeamg"), options);
+
+      chart.render();
+  
+  </script>
+  <script>
+    var options = {
+          series: [20, 35, 45],
+          chart: {
+          width: "100%",
+          type: 'donut',
+        },
+        plotOptions: {
+          pie: {
+            startAngle: -90,
+            endAngle: 270
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        fill: {
+          type: 'gradient',
+        },
+        legend: {
+          formatter: function(val, opts) {
+            return val + " - " + opts.w.globals.series[opts.seriesIndex]
+          }
+        },
+        labels: ['Promoters', 'Passive', 'Detractors'],
+        colors:['#4CBB17', '#FFC300', '#F44336'],
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 240
+            },
+            legend: {
+              position: 'bottom',
+              horizontalAlign: 'center'
+            }
+          }
+        }]
+        };
+
+        var chart = new ApexCharts(document.querySelector("#enps-mg"), options);
+        chart.render();
+  </script>  
+
+    <script>
+      
+      var options = {
+        series: [76],
+        chart: {
+        type: 'radialBar',
+        height: '80%',
+        offsetY: -20,
+        sparkline: {
+          enabled: true
+        }
+      },
+      plotOptions: {
+        radialBar: {
+          startAngle: -90,
+          endAngle: 90,
+          track: {
+            background: "#e7e7e7",
+            strokeWidth: '97%',
+            margin: 5, // margin is in pixels
+            dropShadow: {
+              enabled: true,
+              top: 2,
+              left: 0,
+              color: '#999',
+              opacity: 1,
+              blur: 2
+            }
+          },
+          dataLabels: {
+            name: {
+              show: false
+            },
+            value: {
+              offsetY: -2,
+              fontSize: '22px'
+            }
+          }
+        }
+      },
+      grid: {
+        padding: {
+          top: -10
+        }
+      },
+      fill: {
+        type: 'gradient',
+        gradient: {
+          shade: 'light',
+          shadeIntensity: 0.4,
+          inverseColors: false,
+          opacityFrom: 1,
+          opacityTo: 1,
+          stops: [0, 50, 53, 91]
+        },
+      },
+      labels: ['Average Results'],
+      };
+
+      var chart = new ApexCharts(document.querySelector("#eea"), options);
+      chart.render();
+    
+    
+  </script>  
+  <script>
+      
+      var options = {
+        series: [{
+        name: 'absolute no',
+        data: [31, 40, 28, 51, 42, 109, 100]
+      }, {
+        name: 'lifetime',
+        data: [11, 32, 45, 32, 34, 52, 41]
+      }],
+        chart: {
+          height: '130%',
+        type: 'area'
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'smooth'
+      },
+      xaxis: {
+        type: 'datetime',
+        categories: ["2023-09-19T00:00:00.000Z", "2023-09-19T01:30:00.000Z", "2023-09-19T02:30:00.000Z", "2023-09-19T03:30:00.000Z", "2023-09-19T04:30:00.000Z", "2023-09-19T05:30:00.000Z", "2023-09-19T06:30:00.000Z"]
+      },
+      tooltip: {
+        x: {
+          format: 'dd/MM/yy HH:mm'
+        },
+      },
+      };
+
+      var chart = new ApexCharts(document.querySelector("#sp2"), options);
+      chart.render();
+    
+    
+  </script>
+
+  <script>
+    var options = {
+  series: [{
+    name: "Employee Engagement Score",
+    data: [
+      { x: '2022/12/01', y: 2 },
+      { x: '2023/01/01', y: 5 },
+      { x: '2023/02/01', y: 8 },
+      { x: '2023/03/01', y: 10 },
+      { x: '2023/04/01', y: 2 },
+      { x: '2023/05/01', y: 5 },
+      { x: '2023/06/01', y: 8 },
+      { x: '2023/07/01', y: 5 },
+      { x: '2023/08/01', y: 3 },
+      { x: '2023/09/01', y: 6 },
+      { x: '2023/10/01', y: 7 },
+      { x: '2023/11/01', y: 8 }
+    ]
+  }],
+  chart: {
+    type: 'bar',
+    height: 380,
+    width: "100%",
+    toolbar: {
+      show: false
+    },
+  },
+  xaxis: {
+    type: 'category',
+    labels: {
+      formatter: function (val) {
+        var quarter = Math.ceil((new Date(val)).getMonth() / 3);
+        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        return monthNames[(new Date(val)).getMonth()];
+      }
+    },
+  },
+  yaxis: {
+    max: 10,
+    axisBorder: {
+      show: false
+    },
+    axisTicks: {
+      show: false
+    }
+  },
+  title: {
+    text: '',
+  },
+  tooltip: {
+    x: {
+      formatter: function (val) {
+        var quarter = Math.ceil((new Date(val)).getMonth() / 3);
+        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        return monthNames[(new Date(val)).getMonth()] + " " + (new Date(val)).getFullYear();
+      }
+    }
+  },
+  plotOptions: {
+    bar: {
+      columnWidth: '45%',
+      colors: {
+        ranges: [
+          {
+            from: 0,
+            to: 3,
+            color: '#FF0000'
+          },
+          {
+            from: 4,
+            to: 7,
+            color: '#FFBF00'
+          },
+          {
+            from: 8,
+            to: 10,
+            color: '#00D100'
+          }
+        ]
+      },
+      dataLabels: {
+        position: 'top'
+      }
+    }
+  },
+};
+
+var chart = new ApexCharts(document.querySelector("#eea2"), options);
+chart.render();
+  
+  </script>
+  <script>
+        var options = {
+        series: [
+          {
+            data: [
+              { x: 'Loyalty', y: 4 },
+              { x: 'Recognition', y: 6 },
+              { x: 'Clarity', y: 2 },
+              { x: 'Autonomy', y: 10 },
+              { x: 'Stress', y: 7 },
+              { x: 'Relationship', y: 6 },
+              { x: 'Growth', y: 4 },
+              { x: 'Fairness', y: 8 }
+            ]
+          }
+        ],
+        legend: {
+          show: false
+        },
+        chart: {
+          height: 350,
+          type: 'treemap',
+          toolbar: {
+            show: false  // This line will hide the toolbar with the hamburger menu
+          }
+        },
+        dataLabels: {
+          enabled: true,
+          style: {
+            fontSize: '12px'
+          },
+          formatter: function (text, op) {
+            return [text, op.value];
+          },
+          offsetY: -4
+        },
+        plotOptions: {
+          treemap: {
+            enableShades: true,
+            shadeIntensity: 0.5,
+            reverseNegativeShade: true,
+            colorScale: {
+              ranges: [
+                {
+                  from: -6,
+                  to: 0,
+                  color: '#FFBF00'
+                },
+                {
+                  from: 0.001,
+                  to: 6,
+                  color: '#FFBF00'
+                }
+              ]
+            }
+          }
+        }
+      };
+
+      var chart = new ApexCharts(document.querySelector("#eei"), options);
+      chart.render();
+  </script>
+
+  <script>
+          var options = {
+        series: [
+          {
+            name: 'Detractors',
+            data: [44, 55, 41, 10, 25, 15, 35, 15, 05, 15, 45, 09],
+            color: '#FF0000' // Red color for Detractors
+          },
+          {
+            name: 'Passive',
+            data: [53, 32, 33, 40, 15, 35, 45, 05, 25, 45, 15, 31],
+            color: '#FFBF00' // Amber color for Passive
+          },
+          {
+            name: 'Promoters',
+            data: [12, 17, 50, 10, 25, 35, 55, 05, 35, 25, 45, 65],
+            color: '#00D100' // Green color for Promoters
+          }
+        ],
+        chart: {
+          type: 'bar',
+          height: 350,
+          stacked: true,
+          stackType: '100%',
+          toolbar: {
+            show: false
+          }
+        },
+        plotOptions: {
+          bar: {
+            horizontal: true,
+          },
+        },
+        stroke: {
+          width: 1,
+          colors: ['#fff']
+        },
+        xaxis: {
+          categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+          labels: {
+            show: false
+          }
+        },
+        tooltip: {
+          y: {
+            formatter: function (val) {
+              return val.toFixed(0); // Display numbers without decimals
+            }
+          }
+        },
+        fill: {
+          opacity: 1
+        },
+        legend: {
+          position: 'bottom',
+          horizontalAlign: 'left',
+          offsetX: 40
+        }
+      };
+
+      var chart = new ApexCharts(document.querySelector("#enps3"), options);
+      chart.render();
+  </script>
+  <script>
+      
+      var options = {
+        series: [75, 85, 89],
+        chart: {
+        width: '50%',
+        type: 'pie',
+      },
+      labels: ["Loyalty", "Autonomy", "Growth"],
+      theme: {
+        monochrome: {
+          enabled: true
+        }
+      },
+      plotOptions: {
+        pie: {
+          dataLabels: {
+            offset: -5
+          }
+        }
+      },
+      title: {
+        text: ""
+      },
+      dataLabels: {
+        formatter(val, opts) {
+          const name = opts.w.globals.labels[opts.seriesIndex]
+          return [name, val.toFixed(1) + '%']
+        }
+      },
+      legend: {
+        show: false
+      }
+      };
+
+      var chart = new ApexCharts(document.querySelector("#stngt"), options);
+      chart.render();
+    
+    
+  </script>
+
+  <script>
+      
+      var options = {
+        series: [25, 35, 49],
+        chart: {
+        width: '50%',
+        type: 'pie',
+      },
+      labels: ["Workload", "Fairness", "Clarity"],
+      theme: {
+        monochrome: {
+          enabled: true
+        }
+      },
+      plotOptions: {
+        pie: {
+          dataLabels: {
+            offset: -5
+          }
+        }
+      },
+      title: {
+        text: ""
+      },
+      dataLabels: {
+        formatter(val, opts) {
+          const name = opts.w.globals.labels[opts.seriesIndex]
+          return [name, val.toFixed(1) + '%']
+        }
+      },
+      legend: {
+        show: false
+      }
+      };
+
+      var chart = new ApexCharts(document.querySelector("#stngt2"), options);
+      chart.render();
+    
+    
+  </script>
+
+
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="../assets/vendor/libs/block-ui/block-ui.js"></script>
+    <script src="../assets/vendor/libs/sortablejs/sortable.js"></script>
+    <script src="../assets/js/cards-actions.js"></script>
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+  </body>
+</html>

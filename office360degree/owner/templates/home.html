@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h2>Welcome to Office 360 Degree</h2>
+    <p>Hello, {{ user.username }}!</p>
+    <p>Your Company: {{ user.company.name }}</p>
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>

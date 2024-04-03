@@ -1,0 +1,25 @@
+<!-- category_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Categories</title>
+</head>
+<body>
+    <h1>Question Categories</h1>
+
+    <ul>
+        {% for category in categories %}
+            <li>
+                <strong>{{ category.name }}</strong>
+                <p>{{ category.description }}</p>
+                <p>NPS Category: {{ category.is_nps_category }}</p>
+                <p>EES Category: {{ category.is_ees_category }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

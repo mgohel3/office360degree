@@ -1,0 +1,42 @@
+{% load static %}
+
+    <!-- single card -->
+            <div class="col-md-3 col-md-3 d-flex">
+                <div class="card mb-3 W-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Employee Engagement Pulse Survey</h5>
+                        <p class="card-text">Add description here.</p>
+                        <a href="{% url 'owner:survey_ees' %}" class="btn btn-primary align-self-end">View Result</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-md-3 d-flex">
+                <div class="card mb-3 w-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Onboarding Survey</h5>
+                        <p class="card-text">Add description here.</p>
+                        <br>
+                        <a href="{% url 'owner:survey_os' %}" class="btn btn-primary align-self-end">View Result</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-md-3 d-flex">
+              <div class="card mb-3 w-100">
+                  <div class="card-body">
+                      <h5 class="card-title">Exit Survey</h5>
+                      <p class="card-text">Add description here.</p>
+                      <br>
+                      <a href="{% url 'owner:survey_es' %}" class="btn btn-primary align-self-end">View Result</a>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-md-3 d-flex">
+              <div class="card mb-3 w-100">
+                  <div class="card-body">
+                      <h5 class="card-title">Custom Survey</h5>
+                      <p class="card-text">Add description here.</p>
+                      <br>
+                      <a href="{% url 'owner:survey_cs' %}" class="btn btn-primary align-self-end">View Result</a>
+                  </div>
+              </div>
+          </div>

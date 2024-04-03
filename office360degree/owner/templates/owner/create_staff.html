@@ -1,0 +1,26 @@
+<!-- owner/templates/owner/create_staff.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Staff</title>
+</head>
+<body>
+    <h1>Create Staff</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Create Staff</button>
+    </form>
+
+    <a href="{% url 'owner:create_owner' %}">Go to Create Owner</a>
+    <a href="{% url 'owner:create_company' %}">Go to Create Company</a>
+    <!-- Add similar links for other views as needed -->
+
+</body>
+</html>

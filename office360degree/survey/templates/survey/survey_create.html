@@ -1,0 +1,11 @@
+<!-- survey/templates/survey/create_survey.html -->
+
+
+{% block content %}
+  <h2>Create a New NPS Survey</h2>
+  <form method="post" action="{% url 'survey:create_survey' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Survey</button>
+  </form>
+{% endblock %}

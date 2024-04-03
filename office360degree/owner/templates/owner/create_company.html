@@ -1,0 +1,25 @@
+<!-- owner/templates/owner/create_company.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Company</title>
+</head>
+<body>
+    <h1>Create Company</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Create Company</button>
+    </form>
+
+    <a href="{% url 'owner:create_owner' %}">Go to Create Owner</a>
+    <!-- Add similar links for other views as needed -->
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% extends 'owner/base.html' %}
+{% load static %}
+
+{% block title %} Start Survey - {{ company.name }} - Office 360 Degree, India's own enps survey tool. {% endblock %}
+
+{% block content %}
+<section class="section-py first-section-pt help-center-header position-relative overflow-hidden">
+  <div class="container-xxl py-3">
+    <div class="misc-wrapper">
+      <h3 class="text-center mb-4"></h3>
+      <div class="row justify-content-center"> <!-- Centering the div -->
+        <div class="col-lg-10 mx-auto mb-4">
+          <div class="row">
+            <div class="col-md-12 mb-md-0 mb-12">
+              <div class="card border shadow-none">
+                <div class="card-body text-center">
+                  <h5 class="my-2">{{ survey.title }}</h5>
+                  <br>
+                  <img src="{% static 'assets/img/backgrounds/survey.png' %}" height="100%" width="80%">
+                  <br>
+                  <br>
+                  <h4 class="mb-3"><b> Join the Conversation, Shape the Future: Your Voice Matters in Our Office 360 Degree Survey! </b> </h4>
+                  <br>
+                  <form method="post" action="{% url 'survey-start' survey.pk %}" style="display: inline-block;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-md btn-label-primary">Start survey</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'owner/base.html' %}
+{% load static %}
+
+{% block title %}
+    Thank you for Survey Participation - {{ company.name }} - Office 360 Degree, India's own enps survey tool.
+{% endblock %}
+{% block content %}
+<div class="container-xxl container-p-y text-center">
+  <div class="misc-wrapper justify-content-center"  style="min-height: 100vh">
+    <h1>Thank you for your feedback!</h1>
+    <p class="mb-4 mx-2">
+    {% if user_email %}
+        <p>We appreciate your time and hope you had a great experience. An email has been sent to {{ user_email }}.</p>
+    {% else %}
+        <p>We appreciate your valuable feedback. Your responses will help us improve and make our workplace better for everyone. <br> If you have any further comments or suggestions, please feel free to reach out to us. Thank you again for your participation!</p>
+    {% endif %}
+    </p>
+    <div class="mt-4">
+      <img src="{% static 'assets/img/illustrations/thanks.png' %}" alt="girl-doing-yoga-light" width="500" class="img-fluid" data-app-dark-img="illustrations/girl-doing-yoga-dark.png" data-app-light-img="illustrations/girl-doing-yoga-light.html">
+    </div>
+  </div>
+</div>
+
+{% endblock %}

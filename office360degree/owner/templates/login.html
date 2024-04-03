@@ -1,0 +1,72 @@
+<!-- owner/templates/login.html -->
+{% extends 'owner/base.html' %}
+{% load static %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+
+    <!-- Content -->
+
+    <div class="container-xxl">
+      <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner">
+          <!-- Register -->
+          <div class="card">
+            <div class="card-body">
+              <!-- Logo -->
+              <div class="app-brand justify-content-center">
+                <a href="index.html" class="app-brand-link gap-2">
+                  <a href="index.html" class="app-brand-link">
+                    <img src="{% static 'assets/img/logo/logo.png' %}" alt="Office360Degree" class="app-brand-img w-px-100">
+                  </a>
+                </a>
+              </div>
+              <!-- /Logo -->
+              <h4 class="mb-2">Welcome to Office360Degree! 👋</h4>
+              <p class="mb-4">Please fill below details to login.</p>
+
+              <form id="formAuthentication" class="mb-3" action="{% url 'owner:login' %}" method="POST">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                  <label for="{{ form.username.id_for_label }}" class="form-label">Username</label>
+                  {{ form.username }}
+                </div>
+
+                <div class="mb-3 form-password-toggle">
+                  <div class="d-flex justify-content-between">
+                    <label class="form-label" for="{{ form.password.id_for_label }}">Password</label>
+                    <a href="auth-forgot-password-basic.html">
+                      <small>Forgot Password?</small>
+                    </a>
+                  </div>
+
+                  <div class="input-group input-group-merge">
+                    {{ form.password }}
+                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <div class="form-check">
+                    {{ form.remember_me }}
+                    <label class="form-check-label" for="{{ form.remember_me.id_for_label }}"> Remember Me </label>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- /Register -->
+        </div>
+      </div>
+    </div>
+
+    <!-- / Content -->
+
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% load static %}
+<div class="row h-100">
+    <div class="col-sm-5">
+        <div class="d-flex align-items-end h-100 justify-content-center mt-sm-0 mt-3">
+            <img src="{% static 'assets/img/illustrations/csv.png' %}" class="img-fluid" alt="Image" width="120" data-app-light-img="illustrations/csv.png" data-app-dark-img="illustrations/csv.png">
+        </div>
+    </div>
+    <div class="col-sm-7">
+        <div class="card-body text-sm-end text-center ps-sm-0">
+            <button data-bs-target="#bulkUserModal" data-bs-toggle="modal" class="btn btn-primary mb-3 text-nowrap add-new-role">Upload CSV</button>
+            <p class="mb-0">Add Multiple Users from CSV. <br> <a href="{% static 'assets/csv/add-multiple-users.csv' %}" target="_blank"> Click here to download sample CSV </a> </p>
+        </div>
+    </div>
+</div>
+<!-- Add User Modal -->
+<div class="modal fade" id="bulkUserModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-simple modal-dialog-centered modal-add-new-role">
+        <div class="modal-content p-3 p-md-5">
+            <div class="modal-body">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="text-center mb-4">
+                    <h3 class="title">Upload CSV Files.</h3>
+                    <p>Instructions Goes Here</p>
+                </div>
+                    <form method="post" action="{% url 'owner:bulk_user_upload' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="file" class="form-label">Select CSV File</label>
+                            <input type="file" class="form-control" id="file" name="file">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload Users</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ Add User Modal -->

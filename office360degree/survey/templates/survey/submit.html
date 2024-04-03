@@ -1,0 +1,47 @@
+{% extends 'owner/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+    Start Survey - {{ company.name }} - Office 360 Degree, India's own enps survey tool.
+{% endblock %}
+
+{% block content %}
+
+<div class="container-xxl">
+  <div class="authentication-wrapper authentication-basic container-p-y">
+    <div class="formAccountSettings">
+      <h6 class="text-center">Your answers to {{ survey.title }}</h6>
+      <!-- Survey Form Start -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <form id="formAccountSettings" method="post" novalidate>
+            {% csrf_token %}
+            {{ formset.management_form }}
+            {{ nps_formset.management_form }}
+            {% for question, nps_form in question_forms %}
+            <div class="row">
+              <div class="mb-3 col-sm-6">
+                <label for="question{{ forloop.counter }}" class="form-label">Question {{ forloop.counter }}: {{ question.question_text }}</label>
+              </div>
+              <div class="mb-3 col-sm-6">
+                <label for="score{{ forloop.counter }}" class="form-label">Score</label>
+                {{ nps_form.score }}
+                {{ nps_form.score.errors }}
+              </div>
+              <div class="mb-3 col-sm-12">
+                <label for="reason{{ forloop.counter }}" class="form-label">Reason</label>
+                {{ nps_form.reason }}
+              </div>
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+      <!-- Survey Form End -->
+    </div>
+  </div>
+</div>
+
+{% endblock %}

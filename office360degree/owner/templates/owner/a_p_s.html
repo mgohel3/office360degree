@@ -1,0 +1,156 @@
+{% load static %}
+<!-- Content wrapper -->
+<div class="content-wrapper">
+  <!-- Content -->
+  <div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4">
+      <span class="text-muted fw-light">Account Settings / </span> Puls Survey Frequency </h4>
+    <div class="row">
+      <div class="col-md-12">
+          {% include 'owner/a_s_btn_nav.html' %}
+        <div class="row">
+          <div class="col-md-6 col-6 mb-md-0 mb-4">
+            <div class="card">
+              <h5 class="card-header">Current Survey Setting</h5>
+              <div class="card-body">
+                <div class="list-group list-group-horizontal-md text-md-center">
+                  <a class="list-group-item list-group-item-action active" id="home-list-item" data-bs-toggle="list" href="#horizontal-home">Frequency</a>
+                  <a class="list-group-item list-group-item-action" id="profile-list-item" data-bs-toggle="list" href="#horizontal-profile">Date</a>
+                  <a class="list-group-item list-group-item-action" id="messages-list-item" data-bs-toggle="list" href="#horizontal-messages">Timing</a>
+                  <a class="list-group-item list-group-item-action" id="settings-list-item" data-bs-toggle="list" href="#horizontal-settings">Duration</a>
+                </div>
+                <div class="tab-content mt-3">
+                  <div class="tab-pane fade show active" id="horizontal-home">
+                    <div class="col-md">
+                      <small class="text-light fw-medium d-block">Select Any One</small>
+                      <div class="form-check form-check-inline mt-3">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                        <label class="form-check-label" for="inlineRadio1">Weekly</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" checked />
+                        <label class="form-check-label" for="inlineRadio2">Monthly</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                        <label class="form-check-label" for="inlineRadio3">Quarterly</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                        <label class="form-check-label" for="inlineRadio4">Yearly</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="horizontal-profile">
+                    <small class="text-light fw-medium d-block">Select Date</small>
+                    <div class="col-md-10">
+                      <input class="form-control" type="date" value="2023-03-05" id="html5-date-input" />
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="horizontal-messages">
+                    <small class="text-light fw-medium d-block">Select Time</small>
+                    <div class="col-md-10">
+                      <input class="form-control" type="time" value="12:30:00" id="html5-time-input" />
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="horizontal-settings">
+                    <div class="col-md">
+                      <small class="text-light fw-medium d-block">Select Days</small>
+                      <div class="form-check form-check-inline mt-3">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                        <label class="form-check-label" for="inlineRadio1">7 Days</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" checked />
+                        <label class="form-check-label" for="inlineRadio2">15 Days</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                        <label class="form-check-label" for="inlineRadio3">1 Month</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                        <label class="form-check-label" for="inlineRadio4">3 Month</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-6 mb-md-0 mb-4">
+            <div class="card">
+              <h5 class="card-header">New Survey Setting</h5>
+              <div class="card-body">
+                <div class="list-group list-group-horizontal-md text-md-center">
+                  <a class="list-group-item list-group-item-action active" id="home-list-item1" data-bs-toggle="list" href="#horizontal-home1">Frequency</a>
+                  <a class="list-group-item list-group-item-action" id="profile-list-item2" data-bs-toggle="list" href="#horizontal-profile2">Date</a>
+                  <a class="list-group-item list-group-item-action" id="messages-list-item3" data-bs-toggle="list" href="#horizontal-messages3">Timing</a>
+                  <a class="list-group-item list-group-item-action" id="settings-list-item4" data-bs-toggle="list" href="#horizontal-settings4">Duration</a>
+                </div>
+                <div class="tab-content mt-3">
+                  <div class="tab-pane fade show active" id="horizontal-home1">
+                    <div class="col-md">
+                      <small class="text-light fw-medium d-block">Select Any One</small>
+                      <div class="form-check form-check-inline mt-3">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                        <label class="form-check-label" for="inlineRadio1">Weekly</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" checked />
+                        <label class="form-check-label" for="inlineRadio2">Monthly</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                        <label class="form-check-label" for="inlineRadio3">Quarterly</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                        <label class="form-check-label" for="inlineRadio4">Yearly</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="horizontal-profile2">
+                    <small class="text-light fw-medium d-block">Select Date</small>
+                    <div class="col-md-10">
+                      <input class="form-control" type="date" value="2023-03-05" id="html5-date-input" />
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="horizontal-messages3">
+                    <small class="text-light fw-medium d-block">Select Time</small>
+                    <div class="col-md-10">
+                      <input class="form-control" type="time" value="12:30:00" id="html5-time-input" />
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="horizontal-settings4">
+                    <div class="col-md">
+                      <small class="text-light fw-medium d-block">Select Days</small>
+                      <div class="form-check form-check-inline mt-3">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                        <label class="form-check-label" for="inlineRadio1">7 Days</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" checked />
+                        <label class="form-check-label" for="inlineRadio2">15 Days</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                        <label class="form-check-label" for="inlineRadio3">1 Month</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                        <label class="form-check-label" for="inlineRadio4">3 Month</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Connections -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- / Content -->

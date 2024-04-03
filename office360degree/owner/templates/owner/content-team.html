@@ -1,0 +1,207 @@
+{% load static %}
+
+<!-- Content wrapper -->
+<div class="content-wrapper">
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+  <!-- Layout Demo -->
+  <div class="row">
+    <div class="col-lg-12 mb-4 order-0">
+
+
+      <div class="card">
+
+        <div class="d-flex align-items-end row">
+          <div class="col-sm-7">
+            <div class="card-body">
+              <h5 class="card-title text-primary">Welcome {{ user.username }}!! 🎉</h5>
+              <p class="mb-4">
+                You're logged in as <span class="fw-bold"> {{ user.get_user_role }} </span> of <span class="fw-bold">{{ company.name }} </span>.
+              </p>
+              <a href="javascript:;" class="btn btn-sm btn-outline-primary">Surveys</a>
+            </div>
+          </div>
+
+
+          <div class="col-sm-5 text-center text-sm-left">
+            <div class="card-body pb-0 px-0 px-md-4">
+              <img src="{% static 'assets/img/illustrations/man-with-laptop-light.png' %}" height="140" alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png" data-app-light-img="illustrations/man-with-laptop-light.png" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-lg-12 mb-4 order-0">
+
+      <div class="row">
+        <div class="col-md">
+          <div class="card h-100">
+            <div class="card-header">Employee Engagement Score</div>
+            <div class="card-body text-primary">
+              <h5 class="card-title"></h5>
+                <p class="card-text">
+                <div id="empe"></div>
+                Employee Engagement Score between 0 to 10 the period from<span class="fw-bold"> 1st September 2023 to 30th September 2023. </span></p>
+                </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md">
+          <div class="card h-100">
+            <div class="card-header">eNPS Score</div>
+            <div class="card-body text-secondary">
+              <p class="card-text">
+                <div id="enps-mg"></div> <br/>
+                eNPS Score increased or decreased by X% during the period from<span class="fw-bold"> 1st September 2023 to 30th September 2023. </span></p>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="card h-100">
+            <div class="card-header">Survey Participation</div>
+            <div class="card-body text-success">
+              <div id="eeamg"></div>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk of the card's content.
+                </p>
+            </div>
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 mb-4 order-0">
+      <div class="row">
+        <div class="col-md">
+          <div class="card">
+            <div class="card-header">Employee Engagement Score Chart</div>
+            <div class="card-body text-primary">
+              <div id="eea2"></div>
+              <p class="card-text">
+                Employee Engagement Score for the<span class="fw-bold"> current month, lifetime high, lifetime low.</span></p>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md">
+          <div class="card">
+            <div class="card-header">eNPS Chart</div>
+            <div class="card-body text-primary">
+              <div id="enps3"></div>
+              <p class="card-text">
+                This indicator/charts shows team wise eNPS score chart for the period from <span class="fw-bold"> 1st September 2023. </span></p>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 mb-4 order-0">
+
+      <div class="row">
+        <div class="col-md">
+          <div class="card">
+            <div class="card-header">Employee Engagement Indicators</div>
+            <div class="card-body text-primary">
+            <div id="eei"></div>
+              <p class="card-text">
+                This indicator shows the Employee Engagement Indicators for the period from <span class="fw-bold"> 1st September 2023. </span></p>
+              </p>
+            </div>
+          </div>
+        </div>
+       </div>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12 mb-4 order-0">
+      <div class="row">
+        <div class="col-md">
+          <div class="card">
+            <div class="card-header">Top 3 Strengths</div>
+            <div class="card-body text-primary">
+              <div class="card-body">
+                <div class="list-group">
+                  <div class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h6>Loyalty</h5>
+                    </div>
+                    <p class="mb-1">Loyalty - Here is the defination of selected indicator.
+                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
+                    </p>
+                  </div>
+                  <div class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h6>Recognition</h5>
+                    </div>
+                    <p class="mb-1">Recognition - Here is the defination of selected indicator.
+                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution</p>
+                  </div>
+                  <div class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h6 >Clarity</h6>
+                    </div>
+                    <p class="mb-1">Clarity - Here is the defination of selected indicator.
+                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="card">
+            <div class="card-header">Top 3 Area's of Improvement</div>
+              <div class="card-body text-primary">
+                <div class="card-body">
+                  <div class="list-group">
+                    <div class="list-group-item list-group-item-action">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h6>Workload</h5>
+                      </div>
+                      <p class="mb-1">Workload - Here is the defination of selected indicator.
+                      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
+                      </p>
+                    </div>
+                    <div class="list-group-item list-group-item-action">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h6>Relationship</h5>
+                      </div>
+                      <p class="mb-1">Relationship - Here is the defination of selected indicator.
+                      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution</p>
+                    </div>
+                    <div class="list-group-item list-group-item-action">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h6 >Stress</h6>
+                      </div>
+                      <p class="mb-1">Stress - Here is the defination of selected indicator.
+                      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Layout Demo -->
+</div>
+<!-- / Content -->

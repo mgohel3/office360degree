@@ -1,0 +1,13 @@
+{% block content %}
+  <h2>{{ survey.title }}</h2>
+  <!-- Display questions and NPS options dynamically -->
+  <form method="post" action="{% url 'nps_survey' survey.link %}">
+    {% csrf_token %}
+    <!-- Render NPS questions dynamically -->
+    {% for question in survey.npssurveyquestion_set.all %}
+      <p>{{ question.question_text }}</p>
+      <input type="number" name="question_{{ question.id }}" min="0" max="10" required>
+    {% endfor %}
+    <button type="submit">Submit Survey</button>
+  </form>
+{% endblock %}

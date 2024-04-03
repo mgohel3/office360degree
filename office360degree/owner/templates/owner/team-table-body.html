@@ -1,0 +1,43 @@
+{% load static %}
+
+<tbody>
+    <tr class="odd">
+        <td class="  control" tabindex="0" style="display: none;"></td>
+            <td class="sorting_1">
+                <div class="d-flex justify-content-start align-items-center user-name">
+                    <div class="d-flex flex-column">
+                        <a href="app-user-view-account.html" class="text-body text-truncate">
+                            <span class="fw-medium">{{ company_user.username }}</span>
+                        </a>
+                        <small class="text">{{ company_user.first_name }} {{ company_user.last_name }}</small>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <span class="text-truncate d-flex align-items-center">
+                    </span>{{ company_user.get_user_role }}</span>
+            </td>
+            <td>{{ company_user.email }}</td>
+            <td>{{ company_user.joining_date }}</td>
+            <td>
+                {% if company_user.is_team_leader %}
+                    {{ company_user.manager.username }}
+                {% elif company_user.is_employee %}
+                    {{ company_user.team_leader.username }}
+                {% elif company_user.is_manager %}
+                    {{ company_user.manager.username }}
+                {% elif company_user.is_hr %}
+                    {{ company_user.manager.username }}
+                {% endif %}
+            </td>
+            {% if user.is_owner or user.is_hr %}
+            <td>
+                <div class="d-inline-block text-nowrap">
+                    <button class="btn btn-sm btn-icon delete-record">
+                        <i class="bx bx-trash"></i>
+                    </button>
+                </div>
+            </td>
+            {% endif %}
+    </tr>
+</tbody>

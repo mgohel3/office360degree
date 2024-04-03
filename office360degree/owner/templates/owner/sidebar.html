@@ -1,0 +1,120 @@
+{% load static %}
+
+<!-- Menu -->
+
+
+    <div class="app-brand demo ">
+    <a href="#" class="app-brand-link">
+      <span class="app-brand-logo demo">
+        <img src="{% static 'assets/img/favicon/favicon.ico' %}" style="height: 40px; width: auto; max-width: 100%;" />
+      </span>
+      <span class="app-brand-text demo menu-text fw-bold ms-2">{{ company.name }}</span>
+    </a>
+
+    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+      <i class="bx bx-chevron-left bx-sm align-middle"></i>
+    </a>
+  </div>
+
+  <div class="menu-inner-shadow"></div>
+
+  <ul class="menu-inner py-1">
+    <!-- Dashboard -->
+    <li class="menu-item {% if request.path == '/owner/dashboard/' %}active{% endif %}">
+      <a href="{% url 'owner:dashboard' %}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div data-i18n="Analytics">Dashboard</div>
+      </a>
+    </li>
+    <li class="menu-item {% if request.path == '/owner/survey/' %}active{% endif %}">
+      <a href="{% url 'owner:survey' %}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-file"></i>
+        <div data-i18n="Analytics">Surveys</div>
+      </a>
+    </li>
+    {% if user.is_owner or user.is_hr or user.is_manager or user.is_team_leader %}
+    <li class="menu-item {% if request.path == '/owner/reports/' %}active{% endif %}">
+      <a href="{% url 'owner:reports' %}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-file-find"></i>
+        <div data-i18n="Analytics">Reports</div>
+      </a>
+    </li>
+    {% endif %}
+    <li class="menu-item {% if request.path == '/owner/comments/' %}active{% endif %}">
+      <a href="{% url 'owner:comments' %}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-comment-detail"></i>
+        <div data-i18n="Analytics">Comments</div>
+      </a>
+    </li>
+    {% if user.is_owner or user.is_hr or user.is_manager or user.is_team_leader %}
+    <li class="menu-item {% if request.path == '/owner/team/' %}active{% endif %}">
+      <a href="{% url 'owner:team' %}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-group"></i>
+        <div data-i18n="Analytics">My Team</div>
+      </a>
+    </li>
+    {% endif %}
+    <!-- Add other menu items as needed -->
+
+    <!-- Account Settings -->
+    <li class="menu-header small text-uppercase">
+      <span class="menu-header-text">Account</span>
+    </li>
+        <li class="menu-item">
+          <a href="#" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-dock-top {% if request.path == '/owner/account_settings/' %}active{% endif %}"></i>
+            <div data-i18n="Account Settings">Account Settings</div>
+          </a>
+          <ul class="menu-sub">
+            <li class="menu-item {% if request.path == '/owner/account_settings/' %}active{% endif %}">
+              <a href="{% url 'owner:account_settings' %}" class="menu-link">
+                <div data-i18n="Account">Account</div>
+              </a>
+            </li>
+            {% if user.is_owner or user.is_hr %}
+            <li class="menu-item {% if request.path == '/owner/ac_survey_questions/' %}active{% endif %}">
+              <a href="{% url 'owner:ac_survey_questions' %}" class="menu-link">
+                <div data-i18n="Account">Survey Questions</div>
+              </a>
+            </li>
+            <li class="menu-item {% if request.path == '/owner/puls_survey_frequency/' %}active{% endif %}">
+              <a href="{% url 'owner:puls_survey_frequency' %}" class="menu-link">
+                <div data-i18n="Account">Puls Survey Frequency</div>
+              </a>
+            </li>
+            <li class="menu-item {% if request.path == '/owner/user-management/' %}active{% endif %}">
+              <a href="{% url 'owner:usermanagement' %}" class="menu-link">
+                <div data-i18n="Account">User Management</div>
+              </a>
+            </li>
+            <li class="menu-item {% if request.path == '/owner/custom_survey_launch/' %}active{% endif %}">
+              <a href="{% url 'owner:custom_survey_launch' %}" class="menu-link">
+                <div data-i18n="Account">Custom Survey Launch</div>
+              </a>
+            </li>
+            {% endif %}
+            <li class="menu-item {% if request.path == '/owner/notifications/' %}active{% endif %}">
+              <a href="{% url 'owner:notifications' %}" class="menu-link">
+                <div data-i18n="Notifications">Notifications</div>
+              </a>
+            </li>
+            <li class="menu-item {% if request.path == '/owner/app_integration/' %}active{% endif %}">
+              <a href="{% url 'owner:app_integration' %}" class="menu-link">
+                <div data-i18n="Connections">App Integration</div>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+    <!-- Sign Out -->
+    <li class="menu-item">
+      {% if user.is_authenticated %}
+      <a href="{% url 'owner:logout' %}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-log-out {% if request.path == '/owner/logout/' %}active{% endif %}"></i>
+        <div data-i18n="Analytics">Sign Out</div>
+      </a>
+      {% endif %}
+    </li>
+  </ul>
+
+<!-- / Menu -->

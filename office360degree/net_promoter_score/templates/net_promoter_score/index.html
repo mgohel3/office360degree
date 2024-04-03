@@ -1,0 +1,11 @@
+<!-- templates/net_promoter_score/index.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}NPS - Your Project{% endblock %}
+
+{% block content %}
+    <h2>Welcome to the NPS App</h2>
+    <p>Click the button to submit your NPS score:</p>
+    <a href="{% url 'net_promoter_score:post_score' %}">Submit NPS Score</a>
+{% endblock %}

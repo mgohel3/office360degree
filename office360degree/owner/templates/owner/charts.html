@@ -1,0 +1,326 @@
+{% load static %}
+
+<!-- Your updated script for ApexCharts -->
+
+<script>
+    var engagementScoreEes = {{ engagement_score_ees }};  // Get the overall Employee Engagement Score for all employees
+
+    // Calculate the percentage based on the score and a scale of 1 to 10
+    var percentage = (engagementScoreEes / 10) * 100;
+
+    var optionsEes = {
+        series: [percentage],
+        chart: {
+            height: 280,
+            type: "radialBar",
+            offsetY: -10
+        },
+        plotOptions: {
+            radialBar: {
+                startAngle: 0,
+                endAngle: 360,
+                dataLabels: {
+                    name: {
+                        offsetY: 20,
+                        color: "grey",
+                        formatter: function () {
+                            return "Overall Score";  // Empty string to hide the label
+                        },
+                        fontSize: '12px'
+                    },
+                    value: {
+                        color: "#111",
+                        offsetY: -30,
+                        fontSize: "22px",
+                        formatter: function (val) {
+                            return val.toFixed(1)/10; // Display the value with one decimal place
+                        }
+                    }
+                }
+            }
+        },
+        fill: {
+            type: 'solid',
+            colors: ['#3F51B5'],  // You can customize the color for the Engagement Score
+        },
+        stroke: {
+            lineCap: 'round',
+        },
+        labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],  // Add labels for each point
+        max: 100  // Set the maximum value to 100 for a percentage scale
+    };
+
+    var chartEes = new ApexCharts(document.querySelector("#emp-ees"), optionsEes);
+    chartEes.render();
+</script>
+<script>
+    var promotersCount = {{ promoters_count }};
+    var detractorsCount = {{ detractors_count }};
+    var neutralCount =  {{ neutrals_count }};
+
+    var totalResponses = promotersCount + detractorsCount + neutralCount;
+    var enpsValue = totalResponses > 0 ? Math.round(((promotersCount - detractorsCount) / totalResponses) * 100) : 0;
+
+    var donutOptions = {
+        series: [promotersCount, neutralCount, detractorsCount],
+        chart: {
+            height: 220,
+            type: "donut",
+        },
+        plotOptions: {
+            pie: {
+                startAngle: -90,
+                endAngle: 270,
+                donut: {
+                    labels: {
+                        show: true,
+                        total: {
+                            show: true,
+                             colors: ['#4CBB17', '#FFC300', '#F44336'],
+                            label: 'eNPS',
+                            formatter: function (w) {
+                                return enpsValue ;
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        fill: {
+            type: 'gradient',
+            colors: ['#4CBB17', '#FFC300', '#F44336']
+        },
+        legend: {
+            show: true,
+                 formatter: function (val, opts) {
+                    return val + " - " + opts.w.globals.series[opts.seriesIndex];
+                },
+                markers: {
+                fillColors: ['#4CBB17', '#FFC300', '#F44336']
+            }
+        },
+        labels: ["Promoters", "Passives", "Detractors"],
+        responsive: [{
+            breakpoint: 480,
+            options: {
+                chart: {
+                    width: 240
+                },
+                legend: {
+                    position: 'bottom',
+                    horizontalAlign: 'center',
+                    markers: {
+                        fillColors: ['#4CBB17', '#FFC300', '#F44336']
+                    }
+                }
+            }
+        }]
+    };
+
+    var donutChart = new ApexCharts(document.querySelector("#enps-mg"), donutOptions);
+    donutChart.render();
+</script>
+<script>
+  var options = {
+    chart: {
+      height: 280,
+      type: "radialBar",
+    },
+    series: [{{ participation_rate }}], // Use the participation_rate variable from Django
+    colors: ["#20E647"],
+    plotOptions: {
+      radialBar: {
+        hollow: {
+          margin: 0,
+          size: "70%",
+          background: "#293450"
+        },
+        track: {
+          dropShadow: {
+            enabled: true,
+            top: 2,
+            left: 0,
+            blur: 4,
+            opacity: 0.15
+          }
+        },
+        dataLabels: {
+          name: {
+            offsetY: -10,
+            color: "#fff",
+            fontSize: "13px"
+          },
+          value: {
+            color: "#fff",
+            fontSize: "30px",
+            show: true,
+            formatter: function(val) {
+              return val.toFixed(2) + "%"; // Display the value with 2 decimal places and the % symbol
+            }
+          }
+        }
+      }
+    },
+    fill: {
+      type: "gradient",
+      gradient: {
+        shade: "dark",
+        type: "vertical",
+        gradientToColors: ["#87D4F9"],
+        stops: [0, 100]
+      }
+    },
+    stroke: {
+      lineCap: "round"
+    },
+    labels: ["Overall Participation"]
+  };
+
+  var chart = new ApexCharts(document.querySelector("#sp"), options);
+
+  chart.render();
+</script>
+<script>
+var categoriesAndScores = [
+    {% for category, score in engagement_scores_by_category.items %}
+        {'category': '{{ category }}', 'score': {{ score|default:0 }} },
+    {% endfor %}
+];
+
+console.log('categoriesAndScores:', categoriesAndScores);
+
+// Sort categories alphabetically
+categoriesAndScores.sort(function(a, b) {
+    return a.category.localeCompare(b.category);
+});
+
+console.log('Sorted categoriesAndScores:', categoriesAndScores);
+
+// Function to determine color based on score
+function getColor(score) {
+    score = parseFloat(score);
+    console.log('Score:', score);
+    if (score >= 9) {
+        console.log('Dark green');
+        return '#006400'; // Dark green
+    } else if (score >= 6) {
+        console.log('Green');
+        return '#00FF00'; // Green
+    } else if (score >= 3) {
+        console.log('Yellow');
+        return '#FFFF00'; // Yellow
+    } else {
+        console.log('Red');
+        return '#FF0000'; // Red
+    }
+}
+
+var options = {
+    series: [{
+        name: 'Engagement Score',
+        data: categoriesAndScores.map(item => item.score)
+    }],
+    chart: {
+        type: 'bar',
+        height: 350,
+        toolbar: {
+            show: false
+        }
+    },
+    plotOptions: {
+        bar: {
+            borderRadius: 4,
+            horizontal: true,
+        }
+    },
+    dataLabels: {
+        enabled: false
+    },
+    xaxis: {
+        categories: categoriesAndScores.map(item => item.category),
+        max: 10,
+        labels: {
+            show: true
+        },
+        axisBorder: {
+            show: false
+        }
+    },
+    yaxis: {
+        max: 10,
+        axisBorder: {
+            show: false
+        }
+    },
+    legend: {
+        show: true,
+        position: 'top',
+        horizontalAlign: 'left',
+        offsetX: 40,
+        offsetY: 10,
+    },
+    fill: {
+        colors: categoriesAndScores.map(item => getColor(item.score)),
+        opacity: 1
+    },
+    colors: ['#006400', '#00FF00', '#FFFF00', '#FF0000'], // Add colors here
+};
+
+var chart = new ApexCharts(document.querySelector("#eei"), options);
+chart.render();
+</script>
+<script>
+  var heatmap_data = {{ heatmap_data|safe }};
+
+  var options = {
+    series: [{
+      name: 'Participation Rate',
+      data: heatmap_data
+    }],
+    chart: {
+      width: '96%',
+      height: '450%',
+      type: 'heatmap'
+    },
+    dataLabels: {
+      enabled: false
+    },
+    plotOptions: {
+      heatmap: {
+        colorScale: {
+          inverse: true
+        }
+      }
+    },
+    colors: ["#F3B415", "#F27036", "#663F59", "#6A6E94", "#4E88B4", "#00A7C6", "#18D8D8", '#A9D794',
+      '#46AF78', '#A93F55', '#8C5E58', '#2176FF', '#33A1FD', '#7A918D', '#BAFF29'
+    ],
+    xaxis: {
+      type: 'categories',
+      categories: heatmap_data.map(item => item.x),
+      labels: {
+        rotate: -90
+      }
+    },
+    yaxis: {
+      type: 'categories',
+      categories: heatmap_data.map(item => item.y),
+      labels: {
+        rotate: 0
+      }
+    },
+    title: {
+      text: 'Participation Rate Heatmap'
+    }
+  };
+
+  var chart = new ApexCharts(document.querySelector("#heatmap"), options);
+  chart.render();
+</script>
+
+
+
+
